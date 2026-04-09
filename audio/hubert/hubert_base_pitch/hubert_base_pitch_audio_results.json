@@ -1,0 +1,125 @@
+{
+  "model": "facebook/hubert-base-ls960",
+  "fine_tuning_type": "Frozen encoder + classifier only",
+  "augmentation": "time_mask_audio",
+  "config": {
+    "random_seed": 42,
+    "dataset_path": "/home/staru/audio_aug/aug_time_mask_audio",
+    "sr": 16000,
+    "max_duration": 10.0,
+    "train_split": 0.8,
+    "val_split": 0.1,
+    "test_split": 0.1,
+    "batch_size": 8,
+    "epochs": 30,
+    "learning_rate": 2e-05,
+    "max_length": 160000,
+    "hubert_model": "facebook/hubert-base-ls960",
+    "device": "cuda"
+  },
+  "emotions": [
+    "Anger",
+    "Disgust",
+    "Fear",
+    "Happy",
+    "Sad",
+    "Neutral"
+  ],
+  "test_accuracy": 0.7962962962962963,
+  "test_loss": 0.6787439082730927,
+  "metrics": {
+    "Emotion": {
+      "0": "Anger",
+      "1": "Disgust",
+      "2": "Fear",
+      "3": "Happy",
+      "4": "Sad",
+      "5": "Neutral"
+    },
+    "Precision": {
+      "0": 0.9307692307692308,
+      "1": 0.744,
+      "2": 0.9333333333333333,
+      "3": 0.6223404255319149,
+      "4": 0.8738738738738738,
+      "5": 0.7720588235294118
+    },
+    "Recall": {
+      "0": 0.8962962962962963,
+      "1": 0.6888888888888889,
+      "2": 0.8296296296296296,
+      "3": 0.8666666666666667,
+      "4": 0.7185185185185186,
+      "5": 0.7777777777777778
+    },
+    "F1-Score": {
+      "0": 0.9132075471698113,
+      "1": 0.7153846153846154,
+      "2": 0.8784313725490196,
+      "3": 0.7244582043343654,
+      "4": 0.7886178861788617,
+      "5": 0.7749077490774908
+    },
+    "Support": {
+      "0": 135,
+      "1": 135,
+      "2": 135,
+      "3": 135,
+      "4": 135,
+      "5": 135
+    }
+  },
+  "confusion_matrix": [
+    [
+      121,
+      4,
+      0,
+      10,
+      0,
+      0
+    ],
+    [
+      3,
+      93,
+      0,
+      22,
+      0,
+      17
+    ],
+    [
+      2,
+      2,
+      112,
+      8,
+      10,
+      1
+    ],
+    [
+      4,
+      6,
+      2,
+      117,
+      3,
+      3
+    ],
+    [
+      0,
+      2,
+      6,
+      20,
+      97,
+      10
+    ],
+    [
+      0,
+      18,
+      0,
+      11,
+      1,
+      105
+    ]
+  ],
+  "total_parameters": 94570118,
+  "trainable_parameters": 94570118,
+  "frozen_parameters": 0
+}

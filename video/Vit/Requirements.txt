@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers
+fastapi
+uvicorn
+pillow
+opencv-python
+safetensors
