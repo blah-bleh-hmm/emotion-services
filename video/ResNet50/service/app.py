@@ -27,7 +27,11 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5000"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:5000",
+        os.getenv("FRONTEND_URL", "http://localhost:5173"),
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,8 +41,9 @@ app.add_middleware(
 # LOAD MODEL
 # -------------------------
 # Using Keras 3 TFSMLayer for SavedModel
+model_path = os.path.join(os.path.dirname(__file__), "../model/emotion_resnet50_savedmodel")
 model = tf.keras.layers.TFSMLayer(
-    "../model/emotion_resnet50_savedmodel",
+    model_path,
     call_endpoint="serving_default"
 )
 
