@@ -4,6 +4,7 @@ WORKDIR /app
 
 # Install system dependencies required by OpenCV and other libraries
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1-mesa-glx \
     libxcb1 \
     libxkbcommon0 \
     libxcb-icccm4 \
