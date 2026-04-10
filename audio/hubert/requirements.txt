@@ -1,6 +1,6 @@
 fastapi
 uvicorn[standard]
-torch
+torch>=2.4.0
 av
 numpy
 transformers
