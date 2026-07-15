@@ -8,6 +8,7 @@ import tensorflow as tf
 import cv2
 import av
 import numpy as np
+import gradio as gr
 from PIL import Image
 import io
 import os
@@ -459,3 +460,13 @@ async def hubert_predict_audio(file: UploadFile = File(...)):
         "predicted_emotion": predicted_emotion,
         "confidence": round(confidence, 4),
     }
+# --- Gradio Wrapper for Hugging Face Space Compatibility ---
+
+# Create a simple Gradio interface that explains the API
+with gr.Blocks(title="Emotion Recognition API Gateway") as demo:
+    gr.Markdown("# 🎭 Multi-Modal Emotion Recognition API")
+    gr.Markdown("This Hugging Face Space hosts the FastAPI backend for emotion detection.")
+    gr.Markdown("The REST API endpoints (/vit, /resnet, /wav2vec, /hubert) are active and running in the background.")
+
+# Mount the Gradio app onto our FastAPI app at the "/ui" path
+app = gr.mount_gradio_app(app, demo, path="/")
